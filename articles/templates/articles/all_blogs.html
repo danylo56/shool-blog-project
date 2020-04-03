@@ -1,0 +1,22 @@
+{% extends 'articles/base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2 class="text-center">Всі статті</h2>
+    <hr>
+    {% for blog in blogs %}
+    <div class="row">
+        <div class="col-md-4 d-flex justify-content-md-start justify-content-center">
+            <img src="{{ blog.image.url }}" alt="Фото {{ blog.title }}" width="200px">
+        </div>
+        <div class="col-md-8">
+            <h2><a class="text-decoration-none text-dark" href="{% url 'detail' blog.id %}">{{blog.title}}</a></h2>
+            <p>{{ blog.summary }}</p>
+            <p>{{ blog.pub_date_pretty}}</p>
+        </div>
+    </div>
+    <hr>
+    {% endfor %}
+</div>
+
+{% endblock %}

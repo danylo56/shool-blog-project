@@ -1,0 +1,19 @@
+{% extends 'articles/base.html' %}
+
+{% block content %}
+<div class="container">
+    <br><br>
+    <div class="row">
+        <div class="col-md-12 d-flex justify-content-center">
+            <img src="{{ article.image.url }}" alt="Фото {{ article.title }}" width="400px">
+        </div>
+        <div class="col-md-12 mt-3">
+            <h2><a class="text-decoration-none text-dark" href="">{{article.title}}</a></h2>
+            <p>{{ article.body }}</p>
+            <p>{{ article.pub_date}}</p>
+        </div>
+    </div>
+    <hr>
+</div>
+
+{% endblock %}

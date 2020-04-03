@@ -1,0 +1,29 @@
+{% extends 'articles/base.html' %}
+
+{% block content %}
+<div class="jumbotron text-center">
+    <div class="container">
+        <h1>Привіт, я Данило!</h1>
+        <h5>Це мій блог про веб-розробку. Я хочу поділитися з вами моїми знаннями про веб.</h5>
+        <br>
+        <a href="{% url 'all_blogs' %}" class="btn btn-primary">Дивитись блог</a>
+    </div>
+</div>
+<div class="container">
+    <h2 class="text-center">Останні статті</h2>
+    <hr>
+    {% for blog in recent_blogs %}
+    <div class="row">
+        <div class="col-md-4 d-flex justify-content-center justify-content-md-start">
+            <img src="{{ blog.image.url }}" alt="Фото {{ blog.title }}" width="200px">
+        </div>
+        <div class="col-md-8">
+            <h2><a class="text-decoration-none text-dark" href="{% url 'detail' blog.id %}">{{blog.title}}</a></h2>
+            <p>{{ blog.summary }}</p>
+        </div>
+    </div>
+    <hr>
+    {% endfor %}
+</div>
+
+{% endblock %}
